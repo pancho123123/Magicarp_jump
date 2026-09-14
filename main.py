@@ -147,7 +147,7 @@ class Counter(pygame.sprite.Sprite):
 
         self.numbers_anim = []
         for n in range(10):
-            self.numbers_anim.append(self.cargar(f"img/number/{n}",8,(34,25)))
+            self.numbers_anim.append(self.cargar(f"img/number/{n}",8,(34,25),BLACK))
         self.score = 0
         self.actualizar_digitos(forzar_anim=False)
         
@@ -164,11 +164,11 @@ class Counter(pygame.sprite.Sprite):
 'animando':forzar_anim
 })
         self.digitos = nuevo_digitos
-    def cargar(self, carpeta, nu,escala=(160,155)):
+    def cargar(self, carpeta, nu,escala=(160,155),color=WHITE):
         anim = []
         for i in range(1,nu):
             img = pygame.image.load(f"{carpeta}/{i}.png").convert()
-            img.set_colorkey(WHITE)
+            img.set_colorkey(color)
             anim.append(pygame.transform.scale(img,escala))
         return anim
 
